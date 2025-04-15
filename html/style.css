@@ -1,0 +1,231 @@
+#wash-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Poppins', sans-serif;
+}
+
+.wash-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, rgba(22, 22, 22, 0.95) 0%, rgba(18, 18, 18, 0.98) 100%);
+    padding: 35px 30px;
+    border-radius: 12px;
+    min-width: 340px;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(67, 160, 71, 0.2),
+                inset 0 0 2px rgba(67, 160, 71, 0.3);
+    border: 1px solid rgba(67, 160, 71, 0.3);
+    animation: scaleIn 0.3s ease-out, glowPulse 2s infinite;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.input-container {
+    position: relative;
+    margin: 0 auto 25px auto;
+    background: rgba(25, 25, 25, 0.8);
+    border-radius: 10px;
+    padding: 3px;
+    width: 90%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+input:focus {
+    outline: none;
+    background: transparent;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.input-container:hover {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-container:focus-within {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+input::selection {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+button {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#wash {
+    background: linear-gradient(135deg, #43a047 0%, #388e3c 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(67, 160, 71, 0.2);
+}
+
+#close {
+    background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(110%);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .wash-box {
+        min-width: 300px;
+        padding: 25px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+    
+    input {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 15px rgba(67, 160, 71, 0.2),
+                    inset 0 0 2px rgba(67, 160, 71, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 20px rgba(67, 160, 71, 0.4),
+                    inset 0 0 4px rgba(67, 160, 71, 0.5);
+    }
+    100% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 15px rgba(67, 160, 71, 0.2),
+                    inset 0 0 2px rgba(67, 160, 71, 0.3);
+    }
+} 
